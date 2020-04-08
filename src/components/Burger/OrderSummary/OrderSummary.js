@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Aux from '../../../hoc/Aux'
 import Button from '../../UI/Button'
 
-//this can be a funcational compnent doewsmt have to be a class
+//this can be a functional component doewsmt have to be a class
 class OrderSummary extends Component{
-    //debudding to make sure the model CMPT dont update till its props changes
+    //debugging to make sure the model CMPT dont update till its props changes
     componentWillUpdate(){
         console.log('OS will update')
     }
