@@ -7,7 +7,7 @@ const burger = (props) => {
     // switching keys to Array and map it
     // [cheese,meat, bacon]
     let transformedIngredient = Object.keys(props.ingredients).map(igKey => {
-        //copy that Array and add another array with from the same Ing
+        //copy that Array and add another array with of the same Ing
          // [[cheese,cheese],meat, bacon]
         return[...Array(props.ingredients[igKey])].map((_,i)=>{
           return  <BurgerIngredient key={igKey + i} type = {igKey} />

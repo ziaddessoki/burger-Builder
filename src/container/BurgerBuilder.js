@@ -30,7 +30,7 @@ class BurgerBuilder extends Component{
         }
     }
     componentDidMount () {
-        console.log(this.props)
+        // console.log(this.props)
         axios.get('https://burgerbuilder-8a307.firebaseio.com/ingredients.json')
         .then(response => {
             
@@ -58,9 +58,7 @@ class BurgerBuilder extends Component{
     addIngredientHandler =(type) =>{
         const oldCount = this.state.ingredients[type];
         const updated = oldCount + 1
-        const updatedIng ={
-            ...this.state.ingredients
-        }
+        const updatedIng ={...this.state.ingredients}
         updatedIng[type]= updated
         const priceAdd =INGREDIENT_PRICES[type]
         const oldPrice = this.state.totalPrice
@@ -95,35 +93,13 @@ class BurgerBuilder extends Component{
     }
 
     orderProceedHandler =()=>{
-        // this.setState({loading:true})
-        // // alert("Proceed")
-        // const order ={
-        //     ingredients: this.state.ingredients,
-        //     price: this.state.totalPrice,
-        //     customer:{
-        //         name:'Zee',
-        //         email: 'Z@mail.com',
-        //         address:{
-        //             street:'blvd',
-        //             zip:'4404',
-        //             Country: 'USA',
-        //         },
-        //         deliveryMethod:'fastest'
-        //     }
-
-        // }
-        // // .json is added for FB
-        // axios.post('/orders.json',order)
-        // .then(response =>{
-        //     this.setState({loading:false, ordered:false})
-        // })
-        // .catch(err =>{ this.setState({loading:false, ordered:false})})
-
         // looping in this.state.ing to send burger info to check out component
         const  queryParams = []
         for (let i in this.state.ingredients){
             queryParams.push(encodeURIComponent(i)+ '=' + encodeURIComponent(this.state.ingredients[i]))
         }
+
+        queryParams.push('price='+this.state.totalPrice)
         const queryString = queryParams.join('&');
 
         this.props.history.push({
@@ -132,6 +108,8 @@ class BurgerBuilder extends Component{
         })
         console.log(queryString)
     }
+
+
     render(){
         const disabledInfo={
             ...this.state.ingredients
