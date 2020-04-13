@@ -2,9 +2,17 @@
     text-align: center;
     width: 100%;
     margin:auto;
+    
 }
 @media (min-width: 600px){
     .CheckoutSummary{
         width: 50%;
     }
+    .Burger{
+        width:'300px'; margin:'auto'
+    }
+}
+
+.Burger{
+    width:'300px'; 
 }

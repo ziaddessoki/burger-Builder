@@ -11,9 +11,10 @@ class Modal extends Component{
        } 
     } 
 
-    componentWillUpdate(){
-        console.log('Model will update')
-    }
+    // componentWillUpdate(){
+    //     console.log('Model will update')
+    //     return true
+    // }
     render(){
         return(<Aux>
             <Backdrop show={this.props.show} clicked ={this.props.modalClosed}/>

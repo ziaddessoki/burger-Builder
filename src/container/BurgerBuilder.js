@@ -30,9 +30,10 @@ class BurgerBuilder extends Component{
         }
     }
     componentDidMount () {
+        console.log(this.props)
         axios.get('https://burgerbuilder-8a307.firebaseio.com/ingredients.json')
         .then(response => {
-            console.log(response.data)
+            
             this.setState({ingredients: response.data})
         })
         .catch(error=>{
@@ -94,29 +95,42 @@ class BurgerBuilder extends Component{
     }
 
     orderProceedHandler =()=>{
-        this.setState({loading:true})
-        // alert("Proceed")
-        const order ={
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer:{
-                name:'Zee',
-                email: 'Z@mail.com',
-                address:{
-                    street:'blvd',
-                    zip:'4404',
-                    Country: 'USA',
-                },
-                deliveryMethod:'fastest'
-            }
-        }
-        // .json is added for FB
-        axios.post('/orders.json',order)
-        .then(response =>{
-            this.setState({loading:false, ordered:false})
-        })
-        .catch(err =>{ this.setState({loading:false, ordered:false})})
+        // this.setState({loading:true})
+        // // alert("Proceed")
+        // const order ={
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer:{
+        //         name:'Zee',
+        //         email: 'Z@mail.com',
+        //         address:{
+        //             street:'blvd',
+        //             zip:'4404',
+        //             Country: 'USA',
+        //         },
+        //         deliveryMethod:'fastest'
+        //     }
 
+        // }
+        // // .json is added for FB
+        // axios.post('/orders.json',order)
+        // .then(response =>{
+        //     this.setState({loading:false, ordered:false})
+        // })
+        // .catch(err =>{ this.setState({loading:false, ordered:false})})
+
+        // looping in this.state.ing to send burger info to check out component
+        const  queryParams = []
+        for (let i in this.state.ingredients){
+            queryParams.push(encodeURIComponent(i)+ '=' + encodeURIComponent(this.state.ingredients[i]))
+        }
+        const queryString = queryParams.join('&');
+
+        this.props.history.push({
+            pathname: '/checkout',
+            search:'?' + queryString
+        })
+        console.log(queryString)
     }
     render(){
         const disabledInfo={

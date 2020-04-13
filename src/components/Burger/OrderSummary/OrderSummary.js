@@ -5,9 +5,9 @@ import Button from '../../UI/Button'
 //this can be a functional component doewsmt have to be a class
 class OrderSummary extends Component{
     //debugging to make sure the model CMPT dont update till its props changes
-    componentWillUpdate(){
-        console.log('OS will update')
-    }
+    // componentWillUpdate(){
+    //     console.log('OS will update')
+    // }
     render(){
 
         const ingredientSummary = Object.keys(this.props.ingredients).map(igKey => {
