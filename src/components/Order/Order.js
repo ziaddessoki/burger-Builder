@@ -25,9 +25,11 @@ const order = (props) => {
     return(
         <div className={classes.Order}>
             <p>Ingredients:{ingredientOutput}</p>
-            <p>Price:<strong>$ {Number.parseFloat(props.price)}</strong>  </p>
+            <p>Price:<strong>${Number.parseFloat(props.price)}</strong>  </p>
         </div>
     )
     
 }
+
+
 export default order;
