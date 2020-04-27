@@ -8,7 +8,7 @@ Burger Builder is a MERN web app that is created for Burger Restaurants, it allo
 - Customize you Burger
 - Click "Order now" to view the price breakdown for this burger
 - Click "Continue" to add it to your checkout bag
-- Then you have the option either to procced with checking out or build another burger
+- Then you have the option either to proceed with checkout or build another burger
 
 
 <br/><strong>Customize Your Burger </strong><br/> ![Login](./assets/Customize.png)
