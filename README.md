@@ -12,9 +12,9 @@ Burger Builder is a MERN web app that is created for Burger Restaurants, it allo
 
 
 <br/><strong>Customize Your Burger </strong><br/> ![Login](./assets/Customize.png)
-<br/><strong>Burger Summary</strong> <br/> ![Login](./assets/Burger Summary.png) 
+<br/><strong>Burger Summary</strong> <br/> ![Login](./assets/burgerSummary.png) 
 
-<br/><strong>Order Summary </strong> <br/> ![Login](./assets/Order summary.png)
+<br/><strong>Order Summary </strong> <br/> ![Login](./assets/orderSummary.png)
 
 
 
