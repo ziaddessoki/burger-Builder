@@ -86,6 +86,7 @@ class ContactData extends Component{
                     ]
                 },
                 value:'',
+                validation:'',
                 valid: true,
             }
         },
@@ -121,6 +122,10 @@ class ContactData extends Component{
     // here where we check that all rules are meet
     checkValidity(value,rules){
         let isValid = true;
+        // for elements w/o validation
+        if(!rules){
+            return true;
+        }
         // if the input is required, change isValid to Ture if it's not equal to an empty string
         if(rules.required){
             isValid = value.trim() !=='' && isValid    
