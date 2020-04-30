@@ -54,7 +54,9 @@ class ContactData extends Component{
                 },
                 value:'',
                 validation:{
-                    required:true
+                    required:true,
+                    minLength:5,
+                    maxLength:5,
                 },
                 valid: false
             },
@@ -110,12 +112,18 @@ class ContactData extends Component{
         .catch(err =>{ this.setState({loading:false})})
     }
 
-
+    // here where we check that all rules are meet
     checkValidity(value,rules){
         let isValid = false;
         // if the input is required, change isValid to Ture if it's not equal to an empty string
         if(rules.required){
             isValid = value.trim() !=='';    
+        }
+        if(rules.minLength){
+            isValid = value.length >= rules.minLength
+        }
+        if(rules.maxLength){
+            isValid = value.length <= rules.maxLength
         }
         return isValid;
     }
