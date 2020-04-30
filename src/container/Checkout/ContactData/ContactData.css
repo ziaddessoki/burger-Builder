@@ -1,5 +1,5 @@
 .ContactData{
-    margin:20px;
+    margin:auto;
     width:80%;
     text-align: center;
     box-shadow: 0 2px 3px #cccccc;
@@ -8,9 +8,7 @@
     box-sizing: border-box;
 }
 
-.Input {
-    display: block;
-}
+
 
 @media (min-width){
     .ContactData{
