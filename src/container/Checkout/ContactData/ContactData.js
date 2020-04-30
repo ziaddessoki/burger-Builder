@@ -114,16 +114,16 @@ class ContactData extends Component{
 
     // here where we check that all rules are meet
     checkValidity(value,rules){
-        let isValid = false;
+        let isValid = true;
         // if the input is required, change isValid to Ture if it's not equal to an empty string
         if(rules.required){
-            isValid = value.trim() !=='';    
+            isValid = value.trim() !=='' && isValid    
         }
         if(rules.minLength){
-            isValid = value.length >= rules.minLength
+            isValid = value.length >= rules.minLength && isValid  
         }
         if(rules.maxLength){
-            isValid = value.length <= rules.maxLength
+            isValid = value.length <= rules.maxLength && isValid  
         }
         return isValid;
     }
