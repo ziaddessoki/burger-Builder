@@ -19,7 +19,8 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true
-                }
+                },
+                valid: false
             },
             email: {
                 elementType:'input',
@@ -30,7 +31,8 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true
-                }
+                },
+                valid: false
             },
             street:{
                 elementType:'input',
@@ -41,7 +43,8 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true
-                }
+                },
+                valid: false
             },
             zip:{
                 elementType:'input',
@@ -52,7 +55,8 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true
-                }
+                },
+                valid: false
             },
             Country: {
                 elementType:'input',
@@ -63,7 +67,8 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true
-                }
+                },
+                valid: false
             },
             deliveryMethod:{
                 elementType:'select',
@@ -105,8 +110,15 @@ class ContactData extends Component{
         .catch(err =>{ this.setState({loading:false})})
     }
 
-    
 
+    checkValidity(value,rules){
+        let isValid = false;
+        // if the input is required, change isValid to Ture if it's not equal to an empty string
+        if(rules.required){
+            isValid = value.trim() !=='';    
+        }
+        return isValid;
+    }
 
 
 
@@ -117,7 +129,9 @@ class ContactData extends Component{
         //this will copy the value/{}
        const updatedFormElement = {...updateOrderForm[inputIdentifier]}
        updatedFormElement.value = event.target.value;
+       updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
        updateOrderForm[inputIdentifier]=updatedFormElement
+       console.log(updatedFormElement)
        this.setState({orderForm:updateOrderForm})
 
     }
