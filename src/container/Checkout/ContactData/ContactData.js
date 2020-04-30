@@ -16,7 +16,10 @@ class ContactData extends Component{
                     type:'text',
                     placeholder:'Your Name'
                 },
-                value:''
+                value:'',
+                validation:{
+                    required:true
+                }
             },
             email: {
                 elementType:'input',
@@ -24,7 +27,10 @@ class ContactData extends Component{
                     type:'email',
                     placeholder:'Your Email'
                 },
-                value:''
+                value:'',
+                validation:{
+                    required:true
+                }
             },
             street:{
                 elementType:'input',
@@ -32,7 +38,10 @@ class ContactData extends Component{
                     type:'text',
                     placeholder:'Street'
                 },
-                value:''
+                value:'',
+                validation:{
+                    required:true
+                }
             },
             zip:{
                 elementType:'input',
@@ -40,7 +49,10 @@ class ContactData extends Component{
                     type:'text',
                     placeholder:'Zip code'
                 },
-                value:''
+                value:'',
+                validation:{
+                    required:true
+                }
             },
             Country: {
                 elementType:'input',
@@ -48,7 +60,10 @@ class ContactData extends Component{
                     type:'text',
                     placeholder:'Country'
                 },
-                value:''
+                value:'',
+                validation:{
+                    required:true
+                }
             },
             deliveryMethod:{
                 elementType:'select',
@@ -58,7 +73,8 @@ class ContactData extends Component{
                         {value:'cheapest', displayValue:'Cheapest'}
                     ]
                 },
-                value:''
+                value:'',
+                
             }
         },
         loading:false,
@@ -88,6 +104,11 @@ class ContactData extends Component{
         })
         .catch(err =>{ this.setState({loading:false})})
     }
+
+    
+
+
+
 
     // to set the state with the new form values
     inputChangeHandler = (event, inputIdentifier) =>{
