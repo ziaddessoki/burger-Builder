@@ -6,6 +6,7 @@ import BurgerBuilder from './container/BurgerBuilder'
 
 import Checkout from './container/Checkout/Checkout';
 import Orders from './container/Orders/Orders'
+import Auth from './container/Auth/Auth'
 
 class App extends Component {
 
