@@ -37,6 +37,7 @@ const removeIngredient = (state, action) => {
 const setIngredients = (state, action) => {
     return updateObject( state, {
         ingredients: {
+            // the order in ingredents coming from DB
             salad: action.ingredients.salad,
             bacon: action.ingredients.bacon,
             cheese: action.ingredients.cheese,
