@@ -205,7 +205,7 @@ class ContactData extends Component{
                 <Button btnType="Success" disabled={!this.state.formIsValid}>Order</Button>
             </form>
         );
-        if(this.state.loading){
+        if(this.props.loading){
             form = <Spinner/>
         }
         return(

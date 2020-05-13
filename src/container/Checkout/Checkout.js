@@ -1,9 +1,10 @@
-import React ,{Component} from 'react';
-import {Route} from 'react-router-dom'
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import CheckoutSummary from '../../components/Order/OrderSummary/CheckoutSummary'
 import ContactData from './ContactData/ContactData';
-import { connect } from 'react-redux'
+import * as actions from '../../store/actions/index'
 
 class Checkout extends Component {
     // state ={
@@ -36,21 +37,23 @@ class Checkout extends Component {
         this.props.history.replace('/checkout/contact-data') 
     }
     render(){
-        return(
-            <div>
-                <CheckoutSummary 
-                checkoutCancelled ={this.checkoutCancelled }
-
-                checkoutContinued ={this.checkoutContinued}
-
-                ingredients={this.props.ings}/>
-                {/* for route we used render instead of component so we can pass props in ContactData */}
-                {/* we also passing props to have the history available so we can redirect on the contactdate component */}
-                <Route path={this.props.match.path+ "/contact-data"} 
-                // render={(props) =>(<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice}{...props}/>)}
-                component={ContactData}/>
-            </div>
-        )
+        let summary = <Redirect to="/" />
+        if ( this.props.ings ) {
+            const purchasedRedirect = this.props.purchased ? <Redirect to="/"/> : null;
+            summary = (
+                <div>
+                    {purchasedRedirect}
+                    <CheckoutSummary
+                        ingredients={this.props.ings}
+                        checkoutCancelled={this.checkoutCancelledHandler}
+                        checkoutContinued={this.checkoutContinuedHandler} />
+                    <Route
+                        path={this.props.match.path + '/contact-data'}
+                        component={ContactData} />
+                </div>
+            );
+        }
+        return summary;
     }
 }
 
