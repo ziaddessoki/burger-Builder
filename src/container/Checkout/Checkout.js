@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import CheckoutSummary from '../../components/Order/OrderSummary/CheckoutSummary'
 import ContactData from './ContactData/ContactData';
-import * as actions from '../../store/actions/index'
+
 
 class Checkout extends Component {
     // state ={
@@ -45,8 +45,8 @@ class Checkout extends Component {
                     {purchasedRedirect}
                     <CheckoutSummary
                         ingredients={this.props.ings}
-                        checkoutCancelled={this.checkoutCancelledHandler}
-                        checkoutContinued={this.checkoutContinuedHandler} />
+                        checkoutCancelled={this.checkoutCancelled}
+                        checkoutContinued={this.checkoutContinued} />
                     <Route
                         path={this.props.match.path + '/contact-data'}
                         component={ContactData} />
