@@ -30,7 +30,7 @@ const authLogout = (state,action) =>{
     return updateObject(state,{token:null, userId:null})
 }
 
-const setAuthRedirectPath = (state, actiom) =>{
+const setAuthRedirectPath = (state, action) =>{
     return updateObject (state,{authRedirectPath:action.path})
 }
 
