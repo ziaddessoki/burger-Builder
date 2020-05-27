@@ -90,7 +90,12 @@ class BurgerBuilder extends Component{
     // }
 
     orderHandler =()=>{
-        this.setState({ordered:true})
+        if(this.props.isAuthenticated){
+            this.setState({ordered:true})
+        }else{
+            this.props.history.push('/auth')
+        }
+        
     }
 
     orderCancelHandler = ()=>{
