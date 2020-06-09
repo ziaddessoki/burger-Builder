@@ -111,6 +111,7 @@ class ContactData extends Component{
             orderData: formData,
             ingredients: this.props.ings,
             price: this.props.price,
+            userId: this.props.userId
         }
         // .json is added for FB
         this.props.onOrderBurger(order, this.props.token);
@@ -221,7 +222,8 @@ const mapStateToProps = state => {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
         loading: state.order.loading,
-        token: state.auth.token
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 };
 
