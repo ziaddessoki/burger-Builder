@@ -28,5 +28,7 @@ Burger Builder is a web app that is created for Burger Restaurants, it allows it
 - CSS Module
 - MongoDB Atlas
 - Firebase
+- Redux
+- Webpack
 
 
